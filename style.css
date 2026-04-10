@@ -21,6 +21,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .color-controls {
@@ -54,16 +55,16 @@ input[type="color"] {
   background: none;
 }
 
-.resize-button {
+button {
   background-color: white;
   border: 1px solid black;
   padding: 2rem;
   font-size: 1rem;
-  margin-top: 1rem;
   border-radius: 5px;
+  width: 100%;
 }
 
-.resize-button:hover {
+button:hover {
   background-color: rgb(125, 125, 125);
   color: white;
   cursor: pointer;

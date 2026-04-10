@@ -34,8 +34,7 @@ function calculateBoxSize(size) {
   return Math.floor(shortestSide / size);
 }
 
-const button = document.querySelector(".resize-button");
-button.addEventListener("click", () => {
+function resizeGrid(){
   let size;
   while (true) {
     let input = prompt("Enter the size of the grid (1-100): ");
@@ -56,6 +55,6 @@ button.addEventListener("click", () => {
   if (size !== undefined) {
     renderGrid(size);
   }
-});
+}
 
 renderGrid(16);
