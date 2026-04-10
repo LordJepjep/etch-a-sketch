@@ -1,8 +1,12 @@
-function createGrid(size) {
+function renderGrid(size) {
   const containerDiv = document.querySelector(".container");
-  const boxSize = calculateBoxSize(size);
-  console.log(boxSize);
+  containerDiv.append(createGrid(size));
+}
 
+function createGrid(size){
+  const boxSize = calculateBoxSize(size);
+
+  const fragment = new DocumentFragment();
   for (i = 0; i < size * size; i++) {
     const boxDiv = document.createElement("div");
     addHoverEvent(boxDiv);
@@ -10,8 +14,9 @@ function createGrid(size) {
     boxDiv.style.width = boxSize + "px";
     boxDiv.style.height = boxSize + "px";
     // boxDiv.style.flexBasis = calculateBoxSize + "%";
-    containerDiv.appendChild(boxDiv);
+    fragment.appendChild(boxDiv);
   }
+  return fragment;
 }
 
 function addHoverEvent(box) {
@@ -21,11 +26,11 @@ function addHoverEvent(box) {
 }
 
 function calculateBoxSize(size) {
-  const availableWidth = window.innerWidth * 0.9;
-  const availableHeight = window.innerHeight * 0.8;
+  const availableWidth = window.innerWidth;
+  const availableHeight = window.innerHeight
   const shortestSide = Math.min(availableWidth, availableHeight);
 
   return Math.floor(shortestSide / size);
 }
 
-createGrid(32);
+renderGrid(16);
