@@ -10,14 +10,53 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: wrap;
   /* margin-top: 1rem; */
   padding: 0 10rem;
   gap: 1rem;
 }
 
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.color-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;            /* Space between the color group and checkbox group */
+  align-items: center;
+  padding: 15px;
+  border: 1px solid  black;
+  border-radius: 8px;
+  width: fit-content;   /* Keeps the bar tight around the controls */
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;             /* Space between the label and its input */
+}
+
+.control-group label {
+  font-weight: bold;
+  cursor: pointer;      /* Makes it obvious the text is clickable */
+}
+
+/* Optional: Make the color picker look nicer */
+input[type="color"] {
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: none;
+}
+
 .resize-button {
   background-color: white;
+  border: 1px solid black;
   padding: 2rem;
   font-size: 1rem;
   margin-top: 1rem;
@@ -27,8 +66,8 @@
 .resize-button:hover {
   background-color: rgb(125, 125, 125);
   color: white;
-  cursor:pointer;
-  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
 .container {
@@ -48,4 +87,5 @@
 
 .box {
   border: 1px solid black;
+  border-collapse: collapse;
 }

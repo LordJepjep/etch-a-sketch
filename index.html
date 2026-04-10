@@ -1,18 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-Sketch</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="main">
+      <div class="controls">
         <button class="resize-button">Resize Grid</button>
-        <div class="container">
+         <button class="clear-button">Clear Grid</button>
+        <div class="color-controls">
+          <div class="control-group">
+            <label for="color-picker">Brush Color</label>
+            <input type="color" id="color-picker" value="#000000" />
+          </div>
 
+          <div class="control-group">
+            <input type="checkbox" id="gradient-option" />
+            <label for="gradient-option">Gradient Mode</label>
+          </div>
         </div>
+      </div>
+      <div class="container"></div>
     </div>
     <script src="script.js" defer></script>
-</body>
+  </body>
 </html>
