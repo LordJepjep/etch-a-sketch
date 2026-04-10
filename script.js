@@ -4,7 +4,7 @@ function renderGrid(size) {
   containerDiv.append(createGrid(size));
 }
 
-function createGrid(size){
+function createGrid(size) {
   const boxSize = calculateBoxSize(size);
 
   const fragment = new DocumentFragment();
@@ -28,7 +28,7 @@ function addHoverEvent(box) {
 
 function calculateBoxSize(size) {
   const availableWidth = window.innerWidth;
-  const availableHeight = window.innerHeight
+  const availableHeight = window.innerHeight;
   const shortestSide = Math.min(availableWidth, availableHeight);
 
   return Math.floor(shortestSide / size);
@@ -36,8 +36,26 @@ function calculateBoxSize(size) {
 
 const button = document.querySelector(".input-grid-size");
 button.addEventListener("click", () => {
-  let size = prompt("Enter the size of the grid (ex: 16 for 16x16): ");
-  renderGrid(size);
+  let size;
+  while (true) {
+    let input = prompt("Enter the size of the grid (1-100): ");
+    if (input === null) {
+      break;
+    }
+
+    size = Number(input);
+
+    if (!Number.isInteger(size) || size <= 0) {
+      alert("Invalid number! Please input a number between 1-100!");
+    } else if (size > 100) {
+      alert("Number is too big! 100s is the limit!");
+    } else break;
+  }
+
+  // if canceled, do nothing
+  if (size !== undefined) {
+    renderGrid(size);
+  }
 });
 
 renderGrid(16);
