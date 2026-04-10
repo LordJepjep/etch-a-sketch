@@ -1,5 +1,6 @@
 function renderGrid(size) {
   const containerDiv = document.querySelector(".container");
+  containerDiv.replaceChildren(); // empty container
   containerDiv.append(createGrid(size));
 }
 
