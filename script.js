@@ -17,6 +17,7 @@ function createGrid(size) {
   for (i = 0; i < size * size; i++) {
     const boxDiv = document.createElement("div");
     boxDiv.classList.add("box");
+    if (size > 50) boxDiv.style.borderColor = "rgba(0, 0, 0, 0.5)";
     boxDiv.style.width = boxSize + "px";
     boxDiv.style.height = boxSize + "px";
     // boxDiv.style.flexBasis = calculateBoxSize + "%";
@@ -29,12 +30,13 @@ function handleHover(e) {
   if (!e.target.classList.contains("box")) return;
 
   const box = e.target;
-  // const colorPicker = document.querySelector("#color-picker");
+  const colorPicker = document.querySelector("#color-picker");
   const isRandom = document.querySelector("#random-option").checked;
   const isDarken = document.querySelector("#darken-option").checked;
 
   if (isRandom) {
-    color = getRandomColor();
+    colorPicker.value = getRandomColor();
+    color = colorPicker.value;
     box.style.backgroundColor = color;
   } else {
     box.style.backgroundColor = color;
@@ -48,10 +50,13 @@ function handleHover(e) {
 }
 
 function getRandomColor() {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
-  return `rgb(${r}, ${g}, ${b})`;
+  // Generates a random number, converts to base 16 (hex),
+  // and pads with a zero if it's only one digit.
+  const h = () =>
+    Math.floor(Math.random() * 256)
+      .toString(16)
+      .padStart(2, "0");
+  return `#${h()}${h()}${h()}`;
 }
 
 function getNewOpacity(opacity) {
@@ -100,7 +105,6 @@ function clearGrid() {
 const colorPicker = document.querySelector("#color-picker");
 colorPicker.value = color;
 colorPicker.addEventListener("change", (event) => {
-  console.log(color, event.target.value);
   color = event.target.value;
 });
 colorPicker.select();
