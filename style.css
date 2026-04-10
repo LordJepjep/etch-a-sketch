@@ -27,8 +27,9 @@
 .color-controls {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
-  align-items: center;
+  align-items: flex-start;
   padding: 15px;
   border: 1px solid black;
   border-radius: 8px;
