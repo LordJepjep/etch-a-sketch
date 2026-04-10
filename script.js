@@ -2,8 +2,10 @@ function createGrid(size) {
   const containerDiv = document.querySelector(".container");
   const boxSize = calculateBoxSize(size);
   console.log(boxSize);
+
   for (i = 0; i < size * size; i++) {
     const boxDiv = document.createElement("div");
+    addHoverEvent(boxDiv);
     boxDiv.classList.add("box");
     boxDiv.style.width = boxSize + "px";
     boxDiv.style.height = boxSize + "px";
@@ -12,13 +14,18 @@ function createGrid(size) {
   }
 }
 
-function calculateBoxSize(size) {
-  const containerWidth = window.screen.width * 0.9;
-  const containerHeight = window.screen.height * 0.9;
+function addHoverEvent(box) {
+  box.addEventListener("mouseenter", () => {
+    box.style.backgroundColor = "red";
+  });
+}
 
-  const shortestSide = Math.min(containerHeight, containerWidth);
+function calculateBoxSize(size) {
+  const availableWidth = window.innerWidth * 0.9;
+  const availableHeight = window.innerHeight * 0.8;
+  const shortestSide = Math.min(availableWidth, availableHeight);
 
   return Math.floor(shortestSide / size);
 }
 
-createGrid(16);
+createGrid(32);
