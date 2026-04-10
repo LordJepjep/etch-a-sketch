@@ -27,26 +27,25 @@
 .color-controls {
   display: flex;
   flex-direction: column;
-  gap: 20px;            /* Space between the color group and checkbox group */
+  gap: 20px;
   align-items: center;
   padding: 15px;
-  border: 1px solid  black;
+  border: 1px solid black;
   border-radius: 8px;
-  width: fit-content;   /* Keeps the bar tight around the controls */
+  width: fit-content;
 }
 
 .control-group {
   display: flex;
   align-items: center;
-  gap: 8px;             /* Space between the label and its input */
+  gap: 8px;
 }
 
 .control-group label {
   font-weight: bold;
-  cursor: pointer;      /* Makes it obvious the text is clickable */
+  cursor: pointer;
 }
 
-/* Optional: Make the color picker look nicer */
 input[type="color"] {
   border: none;
   width: 40px;
@@ -56,6 +55,7 @@ input[type="color"] {
 }
 
 button {
+  font-weight: bold;
   background-color: white;
   border: 1px solid black;
   padding: 2rem;
@@ -80,13 +80,9 @@ button:hover {
   align-content: flex-start;
 
   width: 100vmin;
-  /* height: 100vh; */
   aspect-ratio: 1/1;
-
-  /* border: 2px solid red; */
 }
 
 .box {
   border: 1px solid black;
-  border-collapse: collapse;
 }

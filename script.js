@@ -1,3 +1,6 @@
+let size = 16;
+let color = "black";
+
 function renderGrid(size) {
   const containerDiv = document.querySelector(".container");
   containerDiv.replaceChildren(); // empty container
@@ -22,7 +25,7 @@ function createGrid(size) {
 
 function addHoverEvent(box) {
   box.addEventListener("mouseenter", () => {
-    box.style.backgroundColor = "red";
+    box.style.backgroundColor = color;
   });
 }
 
@@ -34,8 +37,7 @@ function calculateBoxSize(size) {
   return Math.floor(shortestSide / size);
 }
 
-function resizeGrid(){
-  let size;
+function resizeGrid() {
   while (true) {
     let input = prompt("Enter the size of the grid (1-100): ");
     if (input === null) {
@@ -57,4 +59,17 @@ function resizeGrid(){
   }
 }
 
-renderGrid(16);
+function clearGrid() {
+  renderGrid(size);
+}
+
+const colorPicker = document.querySelector("#color-picker");
+colorPicker.value = color;
+colorPicker.addEventListener("change", (event) => {
+  console.log(color, event.target.value);
+  color = event.target.value;
+});
+colorPicker.select();
+
+
+renderGrid(size);
