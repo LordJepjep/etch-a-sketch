@@ -34,7 +34,7 @@ function calculateBoxSize(size) {
   return Math.floor(shortestSide / size);
 }
 
-const button = document.querySelector(".input-grid-size");
+const button = document.querySelector(".resize-button");
 button.addEventListener("click", () => {
   let size;
   while (true) {
