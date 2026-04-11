@@ -12,20 +12,26 @@ function renderGrid(size) {
 }
 
 function createGrid(size) {
-  const boxSize = calculateBoxSize(size);
+  const boxSize = 100 / size;
 
   const fragment = new DocumentFragment();
   for (i = 0; i < size * size; i++) {
     const boxDiv = document.createElement("div");
     boxDiv.classList.add("box");
-    if (size > 50) boxDiv.style.borderColor = "rgba(0, 0, 0, 0.5)";
-    boxDiv.style.width = boxSize + "px";
-    boxDiv.style.height = boxSize + "px";
-    // boxDiv.style.flexBasis = calculateBoxSize + "%";
+    boxDiv.style.flexBasis = `${boxSize}%`;
     fragment.appendChild(boxDiv);
   }
   return fragment;
 }
+
+// function calculateBoxSize(size) {
+//   const containerDiv = document.querySelector(".container");
+//   const availableWidth = containerDiv.clientWidth;
+//   const availableHeight = containerDiv.clientHeight;
+//   const shortestSide = Math.min(availableWidth, availableHeight);
+
+//   return Math.floor(shortestSide / size);
+// }
 
 function handleHover(e) {
   if (!e.target.classList.contains("box")) return;
@@ -67,14 +73,6 @@ function getNewOpacity(opacity) {
 
   const newOpacity = currentOpacity + 0.1;
   return newOpacity.toString();
-}
-
-function calculateBoxSize(size) {
-  const availableWidth = window.innerWidth;
-  const availableHeight = window.innerHeight;
-  const shortestSide = Math.min(availableWidth, availableHeight);
-
-  return Math.floor(shortestSide / size);
 }
 
 function resizeGrid() {

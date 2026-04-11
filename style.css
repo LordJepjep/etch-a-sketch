@@ -1,3 +1,8 @@
+:root {
+  --bg-color: rgba(245, 231, 127, 0.811);
+  --canvas-color: white;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,14 +10,16 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .main {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
-  /* margin-top: 1rem; */
-  padding: 0 10rem;
+  align-items: center;
   gap: 1rem;
+  background-color: var(--bg-color);
+  width: 100vw;
+  height: 100vh;
 }
 
 .controls {
@@ -34,6 +41,7 @@
   border: 1px solid black;
   border-radius: 8px;
   width: fit-content;
+  background-color:white;
 }
 
 .control-group {
@@ -103,12 +111,18 @@ button:hover {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  align-content: flex-start;
+  align-content: stretch;
 
-  width: 100vmin;
-  aspect-ratio: 1/1;
+  width: 500px;
+  height: 500px;
+  background-color: var(--canvas-color);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .box {
-  border: 1px solid black;
+  box-sizing: border-box;
+  /* flex-grow allows the boxes to expand into those fractional 0.25px gaps */
+  flex-grow: 1;
+  aspect-ratio: 1/1;
+
 }
