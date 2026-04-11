@@ -8,6 +8,7 @@ function renderGrid(size) {
   containerDiv.removeEventListener("mouseover", handleHover);
   containerDiv.addEventListener("mouseover", handleHover);
   containerDiv.append(createGrid(size));
+  updateSizeDisplayText();
 }
 
 function createGrid(size) {
@@ -77,20 +78,8 @@ function calculateBoxSize(size) {
 }
 
 function resizeGrid() {
-  while (true) {
-    let input = prompt("Enter the size of the grid (1-100): ");
-    if (input === null) {
-      break;
-    }
-
-    size = Number(input);
-
-    if (!Number.isInteger(size) || size <= 0) {
-      alert("Invalid number! Please input a number between 1-100!");
-    } else if (size > 100) {
-      alert("Number is too big! 100s is the limit!");
-    } else break;
-  }
+  const sizeSlider = document.querySelector("#size-slider");
+  size = sizeSlider.value;
 
   // if canceled, do nothing
   if (size !== undefined) {
@@ -100,6 +89,11 @@ function resizeGrid() {
 
 function clearGrid() {
   renderGrid(size);
+}
+
+function updateSizeDisplayText() {
+  const sizeDisplay = document.querySelector(".size");
+  sizeDisplay.textContent = size.toString() + " X " + size.toString();
 }
 
 const colorPicker = document.querySelector("#color-picker");

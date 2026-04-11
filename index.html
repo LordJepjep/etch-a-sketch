@@ -9,8 +9,12 @@
   <body>
     <div class="main">
       <div class="controls">
-        <button class="resize-button" onclick="resizeGrid()">Resize Grid</button>
-         <button class="clear-button" onclick="clearGrid()">Clear Grid</button>
+        <!-- <button class="resize-button" onclick="resizeGrid()">Resize Grid</button> -->
+        <div class="slider-container">
+            <label for="size-slider" class="size"></label>
+            <input type="range" name="size-slider" id="size-slider" min="2" max="100" value="16" onchange="resizeGrid()">
+        </div>
+        <button class="clear-button" onclick="clearGrid()">Clear Grid</button>
         <div class="color-controls">
           <div class="control-group">
             <label for="color-picker">Brush Color</label>

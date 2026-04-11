@@ -72,6 +72,31 @@ button:hover {
   border-radius: 8px;
 }
 
+.slider-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#size-slider {
+  width: 100%;
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+}
+
+#size-slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+.size {
+  font-size: 2rem;
+}
+
 .container {
   display: flex;
   flex-direction: row;
