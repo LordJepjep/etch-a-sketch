@@ -11,18 +11,25 @@
       <div class="controls">
         <!-- <button class="resize-button" onclick="resizeGrid()">Resize Grid</button> -->
         <div class="slider-container">
-            <label for="size-slider" class="size"></label>
-            <input type="range" name="size-slider" id="size-slider" min="2" max="100" value="16" onchange="resizeGrid()">
+          <label for="size-slider" class="size">16 X 16</label>
+          <input
+            type="range"
+            name="size-slider"
+            id="size-slider"
+            min="2"
+            max="100"
+            value="16"
+            onchange="resizeGrid()"
+          />
         </div>
-        <button class="clear-button" onclick="clearGrid()">Clear Grid</button>
+        <button class="mode-btn active" data-mode="color">Color Mode</button>
+        <button class="mode-btn" data-mode="random">Random Mode</button>
+        <button class="mode-btn" data-mode="eraser">Eraser</button>
+        <button onclick="clearGrid()">Clear Board</button>
         <div class="color-controls">
           <div class="control-group">
             <label for="color-picker">Brush Color</label>
             <input type="color" id="color-picker" value="#000000" />
-          </div>
-          <div class="control-group">
-            <input type="checkbox" id="random-option" />
-            <label for="random-option">Random Colors</label>
           </div>
           <div class="control-group">
             <input type="checkbox" id="darken-option" />

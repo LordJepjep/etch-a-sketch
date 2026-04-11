@@ -1,5 +1,7 @@
 let size = 16;
 let color = "#000000";
+const defaultColor = "white";
+let currentMode = "color";
 
 function renderGrid(size) {
   const containerDiv = document.querySelector(".container");
@@ -38,15 +40,16 @@ function handleHover(e) {
 
   const box = e.target;
   const colorPicker = document.querySelector("#color-picker");
-  const isRandom = document.querySelector("#random-option").checked;
   const isDarken = document.querySelector("#darken-option").checked;
 
-  if (isRandom) {
+  if (currentMode === "random") {
     colorPicker.value = getRandomColor();
     color = colorPicker.value;
     box.style.backgroundColor = color;
-  } else {
+  } else if (currentMode === "color") {
     box.style.backgroundColor = color;
+  } else if (currentMode === "eraser") {
+    box.style.backgroundColor = "white";
   }
 
   if (isDarken) {
@@ -54,6 +57,10 @@ function handleHover(e) {
   } else {
     box.style.opacity = "1"; // Reset to full if darken is off
   }
+}
+
+function clickModeButton() {
+  //
 }
 
 function getRandomColor() {
@@ -100,5 +107,18 @@ colorPicker.addEventListener("change", (event) => {
   color = event.target.value;
 });
 colorPicker.select();
+
+const modeButtons = document.querySelectorAll(".mode-btn");
+
+modeButtons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    // 1. Remove 'active' class from all, add to clicked
+    modeButtons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    // 2. Set the mode based on the data attribute
+    currentMode = btn.dataset.mode;
+  });
+});
 
 renderGrid(size);

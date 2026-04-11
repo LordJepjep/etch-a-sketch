@@ -67,7 +67,7 @@ button {
   font-weight: bold;
   background-color: white;
   border: 1px solid black;
-  padding: 2rem;
+  padding: 1rem;
   font-size: 1rem;
   border-radius: 5px;
   width: 100%;
@@ -75,6 +75,13 @@ button {
 
 button:hover {
   background-color: rgb(125, 125, 125);
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.active {
+  background-color: rgb(45, 44, 44);
   color: white;
   cursor: pointer;
   border-radius: 8px;
